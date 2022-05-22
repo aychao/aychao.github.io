@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-05-21T06:57:06.881Z</updated>
+  <updated>2022-05-22T02:28:35.473Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2022/05/22/spark%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    <id>http://example.com/2022/05/22/spark%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</id>
+    <published>2022-05-22T02:29:13.274Z</published>
+    <updated>2022-05-22T02:28:35.473Z</updated>
+    
+    <content type="html"><![CDATA[<p>一、基础环境配置</p><p>1.编辑主机名（3台机器）<br>  vim &#x2F;etc&#x2F;hostname<br>2.Hosts映射（3台主机）<br>  vim &#x2F;etc&#x2F;hosts<br>3.关闭防火墙（3台机器）<br>  systemctl stop firewalld.service   #关闭防火墙<br>  systemctl disable firewalld.service #禁止防火墙开启自启<br>4.设置ssh免密登录（node1执行-&gt;node1|node2|node3）<br>  ssh-keygen #4个回车生成公钥、私钥</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;一、基础环境配置&lt;/p&gt;
+&lt;p&gt;1.编辑主机名（3台机器）&lt;br&gt;  vim &amp;#x2F;etc&amp;#x2F;hostname&lt;br&gt;2.Hosts映射（3台主机）&lt;br&gt;  vim &amp;#x2F;etc&amp;#x2F;hosts&lt;br&gt;3.关闭防火墙（3台机器）&lt;br&gt;  sys</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>我的第一篇博客文章</title>
