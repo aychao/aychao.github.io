@@ -3,23 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>“spark基础环境配置” | Hexo</title>
+    <title>spark基础环境配置 | Hexo</title>
     
     
-        <meta name="keywords" content="“spark基础环境配置”" />
+        <meta name="keywords" content="spark基础环境配置" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="一、基础环境配置1.编辑主机名（3台机器） 1vim &#x2F;etc&#x2F;hostname 2.Hosts映射（3台主机） 1vim &#x2F;etc&#x2F;hosts 3.关闭防火墙（3台机器） 12systemctl stop firewalld.service   #关闭防火墙systemctl disable firewalld.service #禁止防火墙开启自启 4.设置ssh免密登录（node1执行-&amp;gt">
+    <meta name="description" content="一、基础环境配置1.编辑主机名（3台机器） 1vim &#x2F;etc&#x2F;hostname 2.Hosts映射（3台主机） 12vim &#x2F;etc&#x2F;hosts  3.关闭防火墙（3台机器） 12systemctl stop firewalld.service   #关闭防火墙systemctl disable firewalld.service #禁止防火墙开启自启 4.设置ssh免密登录（node1执行-&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“spark基础环境配置”">
+<meta property="og:title" content="spark基础环境配置">
 <meta property="og:url" content="http://example.com/2022/05/22/%E2%80%9Cspark%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E2%80%9D/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、基础环境配置1.编辑主机名（3台机器） 1vim &#x2F;etc&#x2F;hostname 2.Hosts映射（3台主机） 1vim &#x2F;etc&#x2F;hosts 3.关闭防火墙（3台机器） 12systemctl stop firewalld.service   #关闭防火墙systemctl disable firewalld.service #禁止防火墙开启自启 4.设置ssh免密登录（node1执行-&amp;gt">
+<meta property="og:description" content="一、基础环境配置1.编辑主机名（3台机器） 1vim &#x2F;etc&#x2F;hostname 2.Hosts映射（3台主机） 12vim &#x2F;etc&#x2F;hosts  3.关闭防火墙（3台机器） 12systemctl stop firewalld.service   #关闭防火墙systemctl disable firewalld.service #禁止防火墙开启自启 4.设置ssh免密登录（node1执行-&amp;">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/86158/Desktop/图片1.png">
 <meta property="article:published_time" content="2022-05-22T03:06:37.000Z">
-<meta property="article:modified_time" content="2022-05-22T07:30:30.182Z">
+<meta property="article:modified_time" content="2022-05-22T11:51:48.395Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/86158/Desktop/图片1.png">
     
 
     
@@ -208,7 +210,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            “spark基础环境配置”
+            spark基础环境配置
         </h1>
     
 
@@ -221,7 +223,7 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">Catalogue</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">一、基础环境配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number"></span> <span class="toc-text">参考资料</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">一、基础环境配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81JDK%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">二、JDK安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81Hadoop%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">三、Hadoop安装配置</span></a></li></ol>
                 </div>
             
         
@@ -229,7 +231,8 @@
             <h3 id="一、基础环境配置"><a href="#一、基础环境配置" class="headerlink" title="一、基础环境配置"></a>一、基础环境配置</h3><p>1.编辑主机名（3台机器）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br></pre></td></tr></table></figure>
 <p>2.Hosts映射（3台主机）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\86158\Desktop\图片1.png"></p>
 <p>3.关闭防火墙（3台机器）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service   <span class="comment">#关闭防火墙</span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service <span class="comment">#禁止防火墙开启自启</span></span><br></pre></td></tr></table></figure>
 <p>4.设置ssh免密登录（node1执行-&gt;node1|node2|node3）</p>
@@ -239,14 +242,22 @@
 <p>6.创建统一工作目录（3台机器）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /export/server/    <span class="comment">#软件安装路径</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /export/data/      <span class="comment">#数据存储路径</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /export/software/  <span class="comment">#安装包存放路径</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="二、JDK安装"><a href="#二、JDK安装" class="headerlink" title="二、JDK安装"></a>二、JDK安装</h3><p>1.编译环境软件安装目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir-p /export/server/</span><br></pre></td></tr></table></figure>
+<p>2.JDK1.8安装上传jdk-8u241-linux-x64.tar.gz到&#x2F;export&#x2F;server&#x2F;目录下并解压</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir-p /export/server/</span><br></pre></td></tr></table></figure>
+<p>3.配置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile </span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/export/server/jdk1.8.0_241</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure>
+<p>4.重新加载环境变量文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+<p>5.JDK配置后验证</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
 
+<h3 id="三、Hadoop安装配置"><a href="#三、Hadoop安装配置" class="headerlink" title="三、Hadoop安装配置"></a>三、Hadoop安装配置</h3><p>1.解压上传文件（ hadoop-3.3.0-Centos7-64-with-snappy.tar.gz ）到&#x2F;export&#x2F;server&#x2F;目录下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf hadoop-3.3.0-Centos7-64-with-snappy.tar.gz</span><br></pre></td></tr></table></figure>
+<p>3.修改配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#修改hadoop-env.sh</span></span><br><span class="line"><span class="built_in">cd</span> /export/server/hadoop-3.3.0/etc/hadoop</span><br><span class="line">vim hadoop-env.sh   <span class="comment">#进入文件</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/export/server/jdk1.8.0_241   <span class="comment">#文件最后添加</span></span><br><span class="line"><span class="built_in">export</span> HDFS_NAMENODE_USER=root</span><br><span class="line"><span class="built_in">export</span> HDFS_DATANODE_USER=root</span><br><span class="line"><span class="built_in">export</span> HDFS_SECONDARYNAMENODE_USER=root</span><br><span class="line"><span class="built_in">export</span> YARN_RESOURCEMANAGER_USER=root</span><br><span class="line"><span class="built_in">export</span> YARN_NODEMANAGER_USER=root</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
-<ul>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-</ul>
-</blockquote>
 
             </div>
         
