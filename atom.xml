@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-05-22T05:25:37.990Z</updated>
+  <updated>2022-05-22T07:30:30.182Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,14 +21,15 @@
     <link href="http://example.com/2022/05/22/%E2%80%9Cspark%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E2%80%9D/"/>
     <id>http://example.com/2022/05/22/%E2%80%9Cspark%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E2%80%9D/</id>
     <published>2022-05-22T03:06:37.000Z</published>
-    <updated>2022-05-22T05:25:37.990Z</updated>
+    <updated>2022-05-22T07:30:30.182Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="一、基础环境配置"><a href="#一、基础环境配置" class="headerlink" title="一、基础环境配置"></a>一、基础环境配置</h3><p>1.编辑主机名（3台机器）<br>—bash<br>  vim &#x2F;etc&#x2F;hostname</p><hr><p>2.Hosts映射（3台主机）<br>  vim &#x2F;etc&#x2F;hosts<br>3.关闭防火墙（3台机器）<br>  systemctl stop firewalld.service   #关闭防火墙<br>  systemctl disable firewalld.service #禁止防火墙开启自启<br>4.设置ssh免密登录（node1执行-&gt;node1|node2|node3）<br>  ssh-keygen #4个回车生成公钥、私钥<br>  ssh-copy-id node1、ssh-copy-id node2、ssh-copy-id node3<br>5.集群时间同步（3台机器）<br>  yum-y install ntpdate<br>  ntpdate ntp4.aliyun.com<br>6.创建统一工作目录（3台机器）<br>  mkdir -p &#x2F;export&#x2F;server&#x2F;    #软件安装路径<br>  mkdir -p &#x2F;export&#x2F;data&#x2F;      #数据存储路径<br>  mkdir -p &#x2F;export&#x2F;software&#x2F;  #安装包存放路径</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
+    <content type="html"><![CDATA[<h3 id="一、基础环境配置"><a href="#一、基础环境配置" class="headerlink" title="一、基础环境配置"></a>一、基础环境配置</h3><p>1.编辑主机名（3台机器）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br></pre></td></tr></table></figure><p>2.Hosts映射（3台主机）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure><p>3.关闭防火墙（3台机器）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service   <span class="comment">#关闭防火墙</span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service <span class="comment">#禁止防火墙开启自启</span></span><br></pre></td></tr></table></figure><p>4.设置ssh免密登录（node1执行-&gt;node1|node2|node3）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen <span class="comment">#4个回车生成公钥、私钥</span></span><br><span class="line">ssh-copy-id node1、ssh-copy-id node2、ssh-copy-id node3</span><br></pre></td></tr></table></figure><p>5.集群时间同步（3台机器）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum-y install ntpdate</span><br><span class="line">ntpdate ntp4.aliyun.com</span><br></pre></td></tr></table></figure><p>6.创建统一工作目录（3台机器）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /export/server/    <span class="comment">#软件安装路径</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /export/data/      <span class="comment">#数据存储路径</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /export/software/  <span class="comment">#安装包存放路径</span></span><br></pre></td></tr></table></figure><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href=""></a></li><li><a href=""></a></li></ul></blockquote>]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;一、基础环境配置&quot;&gt;&lt;a href=&quot;#一、基础环境配置&quot; class=&quot;headerlink&quot; title=&quot;一、基础环境配置&quot;&gt;&lt;/a&gt;一、基础环境配置&lt;/h3&gt;&lt;p&gt;1.编辑主机名（3台机器）&lt;br&gt;—bash&lt;br&gt;  vim &amp;#x2F;etc&amp;#x2F</summary>
+    <summary type="html">&lt;h3 id=&quot;一、基础环境配置&quot;&gt;&lt;a href=&quot;#一、基础环境配置&quot; class=&quot;headerlink&quot; title=&quot;一、基础环境配置&quot;&gt;&lt;/a&gt;一、基础环境配置&lt;/h3&gt;&lt;p&gt;1.编辑主机名（3台机器）&lt;/p&gt;
+&lt;figure class=&quot;highlight bas</summary>
       
     
     
