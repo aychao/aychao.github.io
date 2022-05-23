@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hexo</title>
+    <title>Spark-local&amp; stand-alone配置 | Hexo</title>
     
     
-        <meta name="keywords" content="Hexo" />
+        <meta name="keywords" content="Spark-local&amp; stand-alone配置" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="一、Spark-local模式本地模式(单机) 本地模式就是以一个独立的进程,通过其内部的多个线程来模拟整个Spark运行时环境   Anaconda On Linux 安装 (单台服务器脚本安装)   1.安装上传安装包: 资料中提供的Anaconda3-2021.05-Linux-x86_64.sh文件到Linux服务器上安装位置在 &#x2F;export&#x2F;server: 1234">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2022/05/23/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="Spark-local&amp; stand-alone配置">
+<meta property="og:url" content="http://example.com/2022/05/22/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="一、Spark-local模式本地模式(单机) 本地模式就是以一个独立的进程,通过其内部的多个线程来模拟整个Spark运行时环境   Anaconda On Linux 安装 (单台服务器脚本安装)   1.安装上传安装包: 资料中提供的Anaconda3-2021.05-Linux-x86_64.sh文件到Linux服务器上安装位置在 &#x2F;export&#x2F;server: 1234">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-05-23T07:56:38.620Z">
-<meta property="article:modified_time" content="2022-05-23T09:43:18.780Z">
+<meta property="article:published_time" content="2022-05-22T03:06:37.000Z">
+<meta property="article:modified_time" content="2022-05-23T09:48:11.092Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -174,10 +174,55 @@
     <div class="article-inner">
         
         
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/05/22/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/">
+            <time datetime="2022-05-22T03:06:37.000Z" itemprop="datePublished">2022-05-22</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/aychao/blog/raw/master/source/_posts/Spark local&amp; stand-alone配置.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/aychao/blog/edit/master/source/_posts/Spark local&amp; stand-alone配置.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/aychao/blog/commits/master/source/_posts/Spark local&amp; stand-alone配置.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Spark-local&amp; stand-alone配置
+        </h1>
+    
+
+            </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
         
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81Spark-local%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">一、Spark-local模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Spark-Standalone%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">二、Spark-Standalone模式</span></a></li></ol>
+                </div>
             
         
         
@@ -186,7 +231,9 @@
 <p>  1.安装上传安装包: 资料中提供的Anaconda3-2021.05-Linux-x86_64.sh文件到Linux服务器上安装位置在 &#x2F;export&#x2F;server:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /export/server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行文件</span></span><br><span class="line">sh Anaconda3-2021.05-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  过程显示：</span><br><span class="line">  ···</span><br><span class="line">  <span class="comment">#出现内容选 yes</span></span><br><span class="line">  Please answer <span class="string">&#x27;yes&#x27;</span> or <span class="string">&#x27;no&#x27;</span>:<span class="string">&#x27; </span></span><br><span class="line"><span class="string">  &gt;&gt;&gt; yes</span></span><br><span class="line"><span class="string">  ···</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  # 出现添加路径：/export/server/anaconda3</span></span><br><span class="line"><span class="string">  ···</span></span><br><span class="line"><span class="string">  [/root/anaconda3] &gt;&gt;&gt; /export/server/anaconda3 </span></span><br><span class="line"><span class="string">  PREFIX=/export/server/anaconda3</span></span><br><span class="line"><span class="string">  ···</span></span><br><span class="line"><span class="string">2.安装完成后, 退出终端， 重新进来:</span></span><br><span class="line"><span class="string">```bash</span></span><br><span class="line"><span class="string">  exit</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">过程显示：</span><br><span class="line">···</span><br><span class="line"><span class="comment">#出现内容选 yes</span></span><br><span class="line">Please answer <span class="string">&#x27;yes&#x27;</span> or <span class="string">&#x27;no&#x27;</span>:<span class="string">&#x27; </span></span><br><span class="line"><span class="string">&gt;&gt;&gt; yes</span></span><br><span class="line"><span class="string">···</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 出现添加路径：/export/server/anaconda3</span></span><br><span class="line"><span class="string">···</span></span><br><span class="line"><span class="string">[/root/anaconda3] &gt;&gt;&gt; /export/server/anaconda3 </span></span><br><span class="line"><span class="string">PREFIX=/export/server/anaconda3</span></span><br><span class="line"><span class="string">···</span></span><br></pre></td></tr></table></figure>
+<p>2.安装完成后, 退出终端， 重新进来:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">结果显示： </span><br><span class="line"><span class="comment">#看到这个Base开头表明安装好了.base是默认的虚拟环境. </span></span><br><span class="line">Last login: Tue Mar 15 15:28:59 2022 from 192.168.88.1 </span><br><span class="line">(base) [root@master ~]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
 <p>3.在虚拟环境内安装包 （有WARNING不用管）</p>
@@ -263,10 +310,19 @@
     
 <nav id="article-nav">
     
+        <a href="/2022/05/22/%E2%80%9Cspark%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E2%80%9D/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    spark基础环境配置
+                
+            </div>
+        </a>
     
-        <a href="/2022/05/22/%E2%80%9Cspark%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E2%80%9D/" id="article-nav-older" class="article-nav-link-wrap">
+    
+        <a href="/2022/05/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">spark基础环境配置</div>
+            <div class="article-nav-title">我的第一篇博客文章</div>
         </a>
     
 </nav>
