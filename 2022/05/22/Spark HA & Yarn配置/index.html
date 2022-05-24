@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Spark HA &amp; Yarn配置 | Hexo</title>
+    
+    
+        <meta name="keywords" content="Spark HA &amp; Yarn配置" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="一、Spark-Standalone-HA模式Spark Standalone集群是Master-Slaves架构的集群模式,和大部分的Master-Slaves结构集群一样,存在着Master 单点故障(SPOF)的问题。简单理解为，spark-Standalone 模式下为 master 节点控制其他节点，当 master 节点出现故障时，集群就不可用了。 spark-Standalone-H">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark HA &amp; Yarn配置">
+<meta property="og:url" content="http://example.com/2022/05/22/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、Spark-Standalone-HA模式Spark Standalone集群是Master-Slaves架构的集群模式,和大部分的Master-Slaves结构集群一样,存在着Master 单点故障(SPOF)的问题。简单理解为，spark-Standalone 模式下为 master 节点控制其他节点，当 master 节点出现故障时，集群就不可用了。 spark-Standalone-H">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-22T03:06:37.000Z">
+<meta property="article:modified_time" content="2022-05-24T09:35:11.714Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hexo</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Spark HA &amp; Yarn配置" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/05/22/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/">
+            <time datetime="2022-05-22T03:06:37.000Z" itemprop="datePublished">2022-05-22</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/aychao/blog/raw/master/source/_posts/Spark HA &amp; Yarn配置.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/aychao/blog/edit/master/source/_posts/Spark HA &amp; Yarn配置.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/aychao/blog/commits/master/source/_posts/Spark HA &amp; Yarn配置.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Spark HA &amp; Yarn配置
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81Spark-Standalone-HA%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">一、Spark-Standalone-HA模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Spark-On-YARN%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">二、Spark On YARN模式</span></a></li></ol>
+                </div>
+            
+        
+        
+            <h3 id="一、Spark-Standalone-HA模式"><a href="#一、Spark-Standalone-HA模式" class="headerlink" title="一、Spark-Standalone-HA模式"></a>一、Spark-Standalone-HA模式</h3><p>Spark Standalone集群是Master-Slaves架构的集群模式,和大部分的Master-Slaves结构集群一样,存在着Master 单点故障(SPOF)的问题。简单理解为，spark-Standalone 模式下为 master 节点控制其他节点，当 master 节点出现故障时，集群就不可用了。 spark-Standalone-HA 模式下master 节点不固定，当一个宕机时，立即换另一台为 master 保障不出现故障。</p>
+<p>1.此处因为先前配置时的 zookeeper 版本和 spark 版本不太兼容，导致此模式有故障，需要重新下载配置新的版本的 zookeeper<br>2.配置之前需要删除三台主机的 旧版 zookeeper 以及 对应的软连接<br>3.在master节点上重新进行前面配置的 zookeeper 操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">上传apache-zookeeper-3.7.0-bin.tar.gz 到/export/server/目录下 并解压文件 </span><br><span class="line">在 /export/server 目录下创建软连接 </span><br><span class="line">进入 /export/server/zookeeper/conf/ 将 zoo_sample.cfg 文件复制为新文件 zoo.cfg </span><br><span class="line">接上步给 zoo.cfg 添加内容 </span><br><span class="line">进入 /export/server/zookeeper/zkdatas 目录在此目录下创建 myid 文件，将 1 写入进 去</span><br><span class="line">将 master 节点中 /export/server/zookeeper-3.7.0 路径下内容推送给slave1 和 slave2 </span><br><span class="line">推送成功后，分别在 slave1 和 slave2 上创建软连接 </span><br><span class="line">接上步推送完成后将 slave1 和 slave2 的 /export/server/zookeeper/zkdatas/文件夹 下的 myid 中的内容分别改为 2 和 3 </span><br><span class="line">配置环境变量： </span><br><span class="line">因先前配置 zookeeper 时候创建过软连接且以 ’zookeeper‘ 为路径，所以不用配置环境变量，此 处也是创建软连接的方便之处.</span><br></pre></td></tr></table></figure>
+<p>4.进入 &#x2F;export&#x2F;server&#x2F;spark&#x2F;conf 文件夹 修改 spark-env.sh 文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /export/server/spark/conf </span><br><span class="line"></span><br><span class="line">vim spark-env.sh</span><br></pre></td></tr></table></figure>
+<p>5.为 83 行内容加上注释，此部分原为指定 某台主机 做 master ，加上注释后即为 任何主机都可以做 master</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">结果显示： </span><br><span class="line">...... </span><br><span class="line">82 <span class="comment"># 告知Spark的master运行在哪个机器上 </span></span><br><span class="line">83 <span class="comment"># export SPARK_MASTER_HOST=master </span></span><br><span class="line">.........</span><br></pre></td></tr></table></figure>
+<p> 文末添加内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SPARK_DAEMON_JAVA_OPTS=<span class="string">&quot;-Dspark.deploy.recoveryMode=ZOOKEEPER -  # spark.deploy.recoveryMode 指定HA模式 基于Zookeeper实现</span></span><br><span class="line"><span class="string">Dspark.deploy.zookeeper.url=master:2181,slave1:2181,slave2:2181 -  # 指定Zookeeper的连接地址</span></span><br><span class="line"><span class="string">Dspark.deploy.zookeeper.dir=/spark-ha&quot;</span>  <span class="comment"># 指定在Zookeeper中注册临时节点的路径</span></span><br></pre></td></tr></table></figure>
+<p>6.分发 spark-env.sh 到 salve1 和 slave2 上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp spark-env.sh slave1:/export/server/spark/conf/ </span><br><span class="line"></span><br><span class="line">scp spark-env.sh slave2:/export/server/spark/conf/</span><br></pre></td></tr></table></figure>
+<p>7.启动之前确保 Zookeeper 和 HDFS 均已经启动<br>  启动集群:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 master 上 启动一个master 和全部worker </span></span><br><span class="line">/export/server/spark/sbin/start-all.sh </span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意, 下面命令在 slave1 上执行 启动 slave1 上的 master 做备用 master </span></span><br><span class="line">/export/server/spark/sbin/start-master.sh</span><br><span class="line"></span><br><span class="line">jps  <span class="comment">#查看是否启动</span></span><br></pre></td></tr></table></figure>
+<p>8.访问 WebUI 界面</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://master:8081/</span><br><span class="line"></span><br><span class="line">http://slave1:8082/</span><br></pre></td></tr></table></figure>
+<p>9.此时 kill 掉 master 上的 master 假设 master 主机宕机掉</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># master主机 master 的进程号 </span></span><br><span class="line"><span class="built_in">kill</span> -9 41589</span><br></pre></td></tr></table></figure>
+<p>10.访问 slave1 的 WebUI</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://slave1:8082/</span><br></pre></td></tr></table></figure>
+<p>11.进行主备切换的测试  提交一个 spark 任务到当前 活跃的 master上 :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/export/server/spark/bin/spark-submit --master spark://master:7077 </span><br><span class="line"></span><br><span class="line">/export/server/spark/examples/src/main/python/pi.py 1000</span><br></pre></td></tr></table></figure>
+<p>12.复制标签 kill 掉 master 的 进程号  再次访问 master 的 WebUI</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://master:8081/</span><br><span class="line"></span><br><span class="line">网页访问不了！</span><br></pre></td></tr></table></figure>
+<p>13.再次访问 slave1 的 WebUI</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://slave1:8082/</span><br></pre></td></tr></table></figure>
+<p>14.可以看到当前活跃的 master 提示信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/export/server/spark/bin/spark-submit --master</span><br><span class="line"></span><br><span class="line">同样可以输出结果</span><br></pre></td></tr></table></figure>
+<p>  当新的 master 接收集群后, 程序继续运行, 正常得到结果.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">结论 HA模式下, 主备切换 不会影响到正在运行的程序.</span><br><span class="line">最大的影响是 会让它中断大约30秒左右</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、Spark-On-YARN模式"><a href="#二、Spark-On-YARN模式" class="headerlink" title="二、Spark On YARN模式"></a>二、Spark On YARN模式</h3><p>在已有YARN集群的前提下在单独准备Spark StandAlone集群,对资源的利用就不高.Spark On YARN, 无需部署Spark集群, 只要找一台服务器, 充当Spark的客户端</p>
+<p>1.保证 HADOOP_CONF_和 DIR_YARN_CONF_DIR 已经配置在 spark-env.sh 和环境变量中 （注: 前面配置spark-Standlone 时已经配置过此项了）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spark-env.sh 文件部分显示：</span><br><span class="line">···</span><br><span class="line"> 77 <span class="comment">## HADOOP软件配置文件目录，读取HDFS上文件和运行YARN集群 </span></span><br><span class="line"> 78 HADOOP_CONF_DIR=/export/server/hadoop/etc/hadoop </span><br><span class="line"> 79 YARN_CONF_DIR=/export/server/hadoop/etc/hadoop</span><br><span class="line">····</span><br></pre></td></tr></table></figure>
+<p>2.链接到 YARN 中（注: 交互式环境 pyspark 和 spark-shell 无法运行 cluster模式）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bin/pyspark --master yarn --deploy-mode client|cluster</span><br><span class="line"><span class="comment"># --deploy-mode 选项是指定部署模式, 默认是 客户端模式 </span></span><br><span class="line"><span class="comment"># client就是客户端模式 </span></span><br><span class="line"><span class="comment"># cluster就是集群模式 </span></span><br><span class="line"><span class="comment"># --deploy-mode 仅可以用在YARN模式下</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-shell --master yarn --deploy-mode client|cluster</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-submit --master yarn --deploy-mode client|cluster /xxx/xxx/xxx.py 参数</span><br></pre></td></tr></table></figure>
+<p>3.park-submit 和 spark-shell 和 pyspark的相关参数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- bin/pyspark: pyspark解释器spark环境 - bin/spark-shell: scala解释器spark环境 </span><br><span class="line">- bin/spark-submit: 提交jar包或Python文件执行的工具 </span><br><span class="line">- bin/spark-sql: sparksql客户端工具</span><br><span class="line"></span><br><span class="line">这4个客户端工具的参数基本通用.以spark-submit 为例: </span><br><span class="line">bin/spark-submit --master spark://master:7077 xxx.py</span><br></pre></td></tr></table></figure>
+<p>4.启动 YARN 的历史服务器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /export/server/hadoop-3.3.0/sbin </span><br><span class="line"></span><br><span class="line">./mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure>
+<p>5.访问WebUI界面</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://master:19888/</span><br></pre></td></tr></table></figure>
+<p> client 模式测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SPARK_HOME=/export/server/spark <span class="variable">$&#123;SPARK_HOME&#125;</span>/bin/spark-submit --master yarn --deploy-mode client --</span><br><span class="line">driver-memory 512m --executor-memory 512m --num-executors 1 --total- </span><br><span class="line">executor-cores 2 <span class="variable">$&#123;SPARK_HOME&#125;</span>/examples/src/main/python/pi.py 3</span><br></pre></td></tr></table></figure>
+<p> cluster 模式测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SPARK_HOME=/export/server/spark <span class="variable">$&#123;SPARK_HOME&#125;</span>/bin/spark-submit --master yarn --deploy-mode cluster --driver- </span><br><span class="line">memory 512m --executor-memory 512m --num-executors 1 --total-executor-cores </span><br><span class="line">2 --conf <span class="string">&quot;spark.pyspark.driver.python=/root/anaconda3/bin/python3&quot;</span> --conf </span><br><span class="line"><span class="string">&quot;spark.pyspark.python=/root/anaconda3/bin/python3&quot;</span> </span><br><span class="line"><span class="variable">$&#123;SPARK_HOME&#125;</span>/examples/src/main/python/pi.py 3</span><br></pre></td></tr></table></figure>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/2022/05/22/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Spark-local&amp; stand-alone配置</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            John Doe &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
