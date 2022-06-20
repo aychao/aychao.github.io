@@ -3,19 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档: 2022/5 | aychao</title>
+    <title>Kafka命令行操作 | aychao</title>
     
     
-        <meta name="keywords" content="aychao" />
+        <meta name="keywords" content="kafka" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="aychao">
-<meta property="og:url" content="http://example.com/archives/2022/05/index.html">
+    <meta name="description" content="1.Kafka 中提供了许多命令行工具(位于$KAFKA HOME&#x2F;bin 目录下)用于管理集群的变更。 2.创建topic.&#x2F;kafka-topics.sh –zookeeper node1:2181,node2:2181,node3:2181 –create –replication-factor 2 –partitions 2 –topic test手动指定副本的存储位置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka命令行操作">
+<meta property="og:url" content="http://example.com/2022/06/12/Kafka%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="aychao">
+<meta property="og:description" content="1.Kafka 中提供了许多命令行工具(位于$KAFKA HOME&#x2F;bin 目录下)用于管理集群的变更。 2.创建topic.&#x2F;kafka-topics.sh –zookeeper node1:2181,node2:2181,node3:2181 –create –replication-factor 2 –partitions 2 –topic test手动指定副本的存储位置">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/5.png">
+<meta property="article:published_time" content="2022-06-12T09:47:32.000Z">
+<meta property="article:modified_time" content="2022-06-20T22:05:56.396Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="kafka">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/5.png">
     
 
     
@@ -166,159 +173,106 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar-o"></i></span>
-                <h1 class="title"><a href="/archives/2022/">2022</a></h1>
-            </div>
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title"><a href="/archives/2022/05/">2022-05</a><span class="archive-list-count">5</span></h1>
-            </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-Kafka命令行操作" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2022/05/22/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/">Spark-local&amp; stand-alone配置</a>
-        </h1>
-    
+                    <div class="article-meta">
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/kafka/" rel="tag">kafka</a>
+    </div>
 
-                
-                <div class="article-meta">
-                    
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2022/05/22/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/">
-            <time datetime="2022-05-22T03:06:37.000Z" itemprop="datePublished">2022-05-22</time>
+        <a href="/2022/06/12/Kafka%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%93%8D%E4%BD%9C/">
+            <time datetime="2022-06-12T09:47:32.000Z" itemprop="datePublished">2022-06-12</time>
         </a>
     </div>
 
 
-                    
-                    
-                </div>
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/aychao/blog/raw/master/source/_posts/Kafka命令行操作.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/aychao/blog/edit/master/source/_posts/Kafka命令行操作.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/aychao/blog/commits/master/source/_posts/Kafka命令行操作.md'> History </a>
+                            </div>
+                        
+                    </div>
                 
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2022/05/22/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/">Spark HA &amp; Yarn配置</a>
+        <h1 class="article-title" itemprop="name">
+            Kafka命令行操作
         </h1>
     
 
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2022/05/22/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/">
-            <time datetime="2022-05-22T03:06:37.000Z" itemprop="datePublished">2022-05-22</time>
-        </a>
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p>1.Kafka 中提供了许多命令行工具(位于$KAFKA HOME&#x2F;bin 目录下)用于管理集群的变更。<br> <img src="/../img/5.png" alt="5.png"><br>2.创建topic<br>.&#x2F;kafka-topics.sh –zookeeper node1:2181,node2:2181,node3:2181 –create –replication-factor 2 –partitions 2 –topic test<br>手动指定副本的存储位置<br>bin&#x2F;kafka-topics.sh –create –topic tpc_3 –zookeeper node1:2181 –replica-assignment 0:1,1:2该方式下,命令会自动判断所要创建的 topic 的分区数及副本数<br>3.删除topic<br>bin&#x2F;kafka-topics.sh  –delete –topic tpc_3 –zookeeper node1：2181删除 topic,需要一个参数处于启用状态: delete.topic.enable &#x3D; true,否则删不掉<br>4.查看topic<br>bin&#x2F;kafka-topics.sh –zookeeper node1:2181,node2:2181,node3:2181 –list<br>5.增加分区数<br>bin&#x2F;kafka-topics.sh –alter –topic tpc_1 –partitions 3 –zookeeper node1:2181<br>Kafka 只支持增加分区,不支持减少分区原因是:减少分区,代价太大(数据的转移,日志段拼接合并) 如果真的需要实现此功能,则完全可以重新创建一个分区数较小的主题,然后将现有主题中的消息按照既定的逻辑复制过去;<br>6.动态配置topic参数<br>添加、修改配置参数bin&#x2F;kafka-configs.sh –zookeeper node1:2181 –entity-type topics –entity-name tpc_1 –alter –add-config compression.type&#x3D;gzip<br>删除配置参数<br>bin&#x2F;kafka-configs.sh –zookeeper node1:2181 –entity-type topics –entity-name tpc_1 –alter –delete-config compression.type<br>7.Kafka命令行生产者与消费者操作<br>(1)生产者:kafka-console-producer<br>bin&#x2F;kafka-console-producer.sh –broker-list node1:9092, node2:9092, node3:9092 –topic tpc_1<br>(2)消费者:kafka-console-consumer<br>1消费消息<br>bin&#x2F;kafka-console-consumer.sh –bootstrap-server node1:9092, node2:9092, node1:9092 –topic tpc_1 –from-beginning(从头开始)<br>2指定要消费的分区,和要消费的起始 offset<br>bin&#x2F;kafka-console-consumer.sh–bootstrap-servernode1:9092,node2:9092,node3:9092 –topic tcp_1 –offset 2 –partition 0<br>8.Kafka命令行配置管理<br>比如查看 topic 的配置可以按如下方式执行:<br>bin&#x2F;kafka-configs.sh zookeeper node1: 2181 –describe –entity-type topics –entity-name tpc_2<br>比如查看 broker 的动态配置可以按如下方式执行:<br>bin&#x2F;kafka-configs.sh zookeeper node1: 2181 –describe –entity-type brokers –entity-name 0 –zookeeper node1:2181</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
     </div>
+</article>
 
 
-                    
-                    
-                </div>
+    
+<nav id="article-nav">
+    
+        <a href="/2022/06/12/kafka-API%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    kafka API使用方法
                 
             </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2022/05/22/%E2%80%9Cspark%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E2%80%9D/">spark基础环境配置</a>
-        </h1>
-    
-
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2022/05/22/%E2%80%9Cspark%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E2%80%9D/">
-            <time datetime="2022-05-22T03:06:37.000Z" itemprop="datePublished">2022-05-22</time>
         </a>
-    </div>
-
-
-                    
-                    
-                </div>
-                
-            </div>
-        </div>
     
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2022/05/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-        </h1>
-    
-
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2022/05/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">
-            <time datetime="2022-05-21T06:57:06.000Z" itemprop="datePublished">2022-05-21</time>
+        <a href="/2022/05/22/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Spark-local&amp; stand-alone配置</div>
         </a>
-    </div>
+    
+</nav>
 
 
-                    
-                    
-                </div>
-                
-            </div>
-        </div>
+
+
+
     
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2022/05/21/hello-world/">Hello World</a>
-        </h1>
     
 
-                
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2022/05/21/hello-world/">
-            <time datetime="2022-05-21T06:51:11.881Z" itemprop="datePublished">2022-05-21</time>
-        </a>
-    </div>
 
 
-                    
-                    
-                </div>
-                
-            </div>
-        </div>
-    
-</div>
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 </section>
         </div>
         <footer id="footer">
