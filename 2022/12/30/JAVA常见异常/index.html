@@ -16,12 +16,10 @@
 <meta property="og:site_name" content="aychao">
 <meta property="og:description" content="JAVA常见异常Java.io.NullPointerException null 空的，不存在的 NullPointer 空指针  空指针异常，该异常出现在我们操作某个对象的属性或方法时，如果该对象是null时引发。 12String str &#x3D; null;str.length();&#x2F;&#x2F;空指针异常  上述代码中引用类型变量str的值为null，此时不能通过它调用字符串的方法或引用属性，否则就会引">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/image-20220106104254532-16414369783111.png">
 <meta property="article:published_time" content="2022-12-30T02:58:54.907Z">
-<meta property="article:modified_time" content="2022-12-30T02:58:54.907Z">
+<meta property="article:modified_time" content="2023-02-11T08:26:11.293Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/image-20220106104254532-16414369783111.png">
     
 
     
@@ -329,7 +327,6 @@
 <p>没有这个元素的异常.该异常通常发生在使用迭代器Iterator遍历集合元素时由于没有先通过hasNext()方法判断存在下一个元素而贸然通过next()获取下一个元素时产生(当集合所有元素都经过迭代器遍历一遍后还使用next获取).</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> (String)it.next();</span><br><span class="line">			<span class="comment">//这里就可能产生NoSuchException异常</span></span><br><span class="line">            System.out.println(it.next());</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/image-20220106104254532-16414369783111.png" alt="image-20220106104254532"></p>
 <p>上述代码中循环遍历时,每次调用hasNext()确定存在下一个元素时,循环里面连续调用过两次next()方法,这意味着第二次调用next()方法时并没有判断是否还存在.所以在最后会出现异常.</p>
 <p>解决办法:</p>
 <p>保证每次调用next()方法前都确定hasNext()为true才进行即可.</p>
