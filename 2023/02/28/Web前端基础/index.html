@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>aychao</title>
+    
+    
+        <meta name="keywords" content="aychao" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Web前端基础 HTML:  学习如何搭建页面  (盖房子,毛坯房)  CSS:  学习如何美化页面 (装修)      JavaScript: 学习如何给页面添加动态效果   HTML Hypertext Markup Language:  超文本标记语言    标记语言的格式: 1&lt;开始标签 属性名&#x3D;&quot;属性值&quot; 属性名&#x3D;&quot;属性值&quot;&gt;标签体&amp;l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="aychao">
+<meta property="og:url" content="http://example.com/2023/02/28/Web%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="aychao">
+<meta property="og:description" content="Web前端基础 HTML:  学习如何搭建页面  (盖房子,毛坯房)  CSS:  学习如何美化页面 (装修)      JavaScript: 学习如何给页面添加动态效果   HTML Hypertext Markup Language:  超文本标记语言    标记语言的格式: 1&lt;开始标签 属性名&#x3D;&quot;属性值&quot; 属性名&#x3D;&quot;属性值&quot;&gt;标签体&amp;l">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-28T13:57:59.283Z">
+<meta property="article:modified_time" content="2023-02-28T13:47:16.533Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="aychao" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">aychao</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-up fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" style="display: block;"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            工具
+                        </a>
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/2022/08/28/Kafka%20API%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Kafka API使用方法</a></li>  <li class="file"><a href="/2022/08/28/Kafka%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%93%8D%E4%BD%9C/">Kafka命令行操作 </a></li>  <li class="file"><a href="/2022/08/28/Kafka%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Kafka基础环境配置</a></li>  <li class="file"><a href="/2022/08/28/kafka%E9%9B%86%E7%BE%A4Eagle%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7/">Eagle运维监控</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/05/21/hello-world/">Hello World</a></li>  <li class="file"><a href="/2022/05/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a></li>  <li class="file"><a href="/2022/05/22/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/">Spark HA & Yarn配置</a></li>  <li class="file"><a href="/2022/05/22/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/">Spark-local& stand-alone配置</a></li>  <li class="file"><a href="/2022/05/22/%E2%80%9Cspark%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E2%80%9D/">spark基础环境配置</a></li>  <li class="file active"><a href="/2023/02/28/Web%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/"></a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Web前端基础" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h1 id="Web前端基础"><a href="#Web前端基础" class="headerlink" title="Web前端基础"></a>Web前端基础</h1><ul>
+<li><p>HTML:  学习如何搭建页面  (盖房子,毛坯房)</p>
+</li>
+<li><p>CSS:  学习如何美化页面 (装修)    </p>
+</li>
+<li><p>JavaScript: 学习如何给页面添加动态效果</p>
+</li>
+</ul>
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><ul>
+<li><p>Hypertext Markup Language:  超文本标记语言  </p>
+</li>
+<li><p>标记语言的格式:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;开始标签 属性名=&quot;属性值&quot; 属性名=&quot;属性值&quot;&gt;标签体&lt;/结束标签&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>学习HTML 主要学习的就是有哪些标签,以及标签的使用方式</p>
+</li>
+</ul>
+<h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h3><ul>
+<li><p>Alt+Insert 新建文件</p>
+</li>
+<li><p>Ctrl+D 复制整行并粘贴到下一行</p>
+</li>
+<li><p>Shift+回车  切换到下一行</p>
+</li>
+<li><p>Ctrl+Alt+L 代码格式化  </p>
+</li>
+<li><p>Ctrl+X   剪切  (可以用做删除)</p>
+</li>
+<li><p>Ctrl+Z   撤销  </p>
+</li>
+<li><p>Ctrl+Shift+Z  恢复</p>
+</li>
+<li><p>Ctrl+Shift+&#x2F;   注释</p>
+</li>
+</ul>
+<h3 id="文本相关标签"><a href="#文本相关标签" class="headerlink" title="文本相关标签"></a>文本相关标签</h3><ul>
+<li><p>内容标题h1-h6</p>
+<p>字体加粗, 独占一行, 自带上下的间距</p>
+</li>
+<li><p>水平分割线 hr</p>
+</li>
+<li><p>段落标签 p</p>
+<p>独占一行, 自带上下间距</p>
+</li>
+<li><p>换行br</p>
+</li>
+<li><p>加粗b</p>
+</li>
+<li><p>斜体i</p>
+</li>
+<li><p>下划线u</p>
+</li>
+<li><p>删除线s</p>
+</li>
+<li><p>无序列表:   ul和li</p>
+</li>
+<li><p>有序列表:  ol和li</p>
+</li>
+<li><p>列表嵌套:  有序和无序列表可以任意无限嵌套</p>
+</li>
+</ul>
+<h3 id="图片标签img"><a href="#图片标签img" class="headerlink" title="图片标签img"></a>图片标签img</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">src设置资源路径:</span><br><span class="line">            相对路径:访问站内资源时使用</span><br><span class="line">                1. 资源和页面在同级目录:  直接写图片名</span><br><span class="line">                2. 资源在页面的上级目录:  ../图片名</span><br><span class="line">                3. 资源在页面的下级目录:  文件夹名/图片名</span><br><span class="line">            绝对路径:访问站外资源时使用,称为图片盗链, 有找不到图片的风险</span><br><span class="line">alt:当图片不能正常显示时显示的文本</span><br><span class="line">title: 鼠标悬停时显示的文本</span><br><span class="line">width/height:设置宽高  两种赋值方式:1.像素 2.百分比</span><br><span class="line">            只设置宽度 高度会自动等比例缩放</span><br></pre></td></tr></table></figure>
+
+<h3 id="超链接a"><a href="#超链接a" class="headerlink" title="超链接a"></a>超链接a</h3><ul>
+<li>href: 设置请求的资源路径,作用类似图片标签的src属性</li>
+<li>图片超链接: 用a标签包裹文本为文本超链接, 包裹图片为图片超链接</li>
+<li>页面内部跳转:  在目的地元素里面添加id属性,  然后在超链接href&#x3D;”#id”,这样就能跳转到指定元素的位置</li>
+</ul>
+<h3 id="表格标签table"><a href="#表格标签table" class="headerlink" title="表格标签table"></a>表格标签table</h3><ul>
+<li>相关标签:    table   tr表示行   td表示列   th表头     caption表格标题  </li>
+<li>相关属性:   border边框    colspan跨列     rowspan跨行</li>
+</ul>
+<h3 id="表单form"><a href="#表单form" class="headerlink" title="表单form"></a>表单form</h3><ul>
+<li>作用:  获取用户输入的各种信息 并提交给服务器 </li>
+<li>学习form表单就是学习有哪些控件, 控件包括: 文本框,密码框,单选,多选,下拉选等</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--action设置请求地址 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;http://www.tmooc.cn&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--文本框, name属性是所有控件必须添加的属性 否则提交时不会传递此内容 placeholder占位文本</span></span><br><span class="line"><span class="comment">  maxlength设置最大字符长度  value设置默认值  readonly只读 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">maxlength</span>=<span class="string">&quot;5&quot;</span> <span class="attr">value</span>=<span class="string">&quot;abc&quot;</span> <span class="attr">readonly</span> <span class="attr">placeholder</span>=<span class="string">&quot;用户名&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--密码框--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;密码&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--value设置提交的内容,如果不设置提交的是on checked设置默认选中 --&gt;</span></span><br><span class="line">  性别:</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;gender&quot;</span> <span class="attr">value</span>=<span class="string">&quot;m&quot;</span> <span class="attr">id</span>=<span class="string">&quot;r1&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;r1&quot;</span>&gt;</span>男<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;gender&quot;</span> <span class="attr">value</span>=<span class="string">&quot;w&quot;</span> <span class="attr">checked</span> <span class="attr">id</span>=<span class="string">&quot;r2&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;r2&quot;</span>&gt;</span>女<span class="tag">&lt;/<span class="name">label</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  兴趣爱好:</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;cy&quot;</span>&gt;</span>抽烟</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;hj&quot;</span>&gt;</span>喝酒</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;tt&quot;</span> <span class="attr">checked</span>&gt;</span>烫头<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  所在地:</span><br><span class="line">  <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;city&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;bj&quot;</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;sh&quot;</span> <span class="attr">selected</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;gz&quot;</span>&gt;</span>广州<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  靓照:</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;pic&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  生日:</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;date&quot;</span> <span class="attr">name</span>=<span class="string">&quot;birthday&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--提交按钮--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;注册&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;自定义&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span>&gt;</span>重置<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span>&gt;</span>自定义<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="分区标签"><a href="#分区标签" class="headerlink" title="分区标签"></a>分区标签</h3><ul>
+<li>分区标签可以理解为一个容器, 将多个有相关性的标签添加到一个分区标签里面, 便于统一管理</li>
+<li>常见的分区标签:<ul>
+<li>div:  独占一行 </li>
+<li>span: 共占一行</li>
+</ul>
+</li>
+<li>HTML5.0版本增加的分区标签 ,这些标签的作用和div 一样, 为了提高代码的可读性  <ul>
+<li>header 头</li>
+<li>footer  脚</li>
+<li>main   主体</li>
+<li>nav    导航</li>
+<li>section   区域</li>
+</ul>
+</li>
+</ul>
+<h1 id="CSS-层叠样式表"><a href="#CSS-层叠样式表" class="headerlink" title="CSS 层叠样式表"></a>CSS 层叠样式表</h1><ul>
+<li>作用: 负责美化页面 (相当于装修)</li>
+</ul>
+<h3 id="如何在html页面中添加css样式代码"><a href="#如何在html页面中添加css样式代码" class="headerlink" title="如何在html页面中添加css样式代码"></a>如何在html页面中添加css样式代码</h3><ul>
+<li>三种引入方式:<ul>
+<li>内联: 在标签的style属性中添加样式代码,  不能复用</li>
+<li>内部: 在head标签里面添加style标签, 在标签体内添加样式代码, 可以当前页面复用 不能多页面复用</li>
+<li>外部: 在单独css文件中添加样式代码, 在html页面中的head标签里面添加link标签 把css引入到html页面中, 支持多页面复用</li>
+</ul>
+</li>
+</ul>
+<h3 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h3><ul>
+<li>作用: 用来查找页面中的元素</li>
+</ul>
+<ol>
+<li><p>标签名选择器: 匹配页面中所有同名标签 </p>
+<p>格式:   标签名{样式代码}</p>
+</li>
+<li><p>id选择器:    当需要选择页面中某一个标签时使用  </p>
+<p>格式:  #id{样式代码}</p>
+</li>
+<li><p>类选择器: 当需要选择页面中多个不相关的元素时,给多个元素添加相同的class值划分为同一类</p>
+<p>格式: .class{样式代码}</p>
+</li>
+<li><p>分组选择器: 将多个选择器划分为同一组进行统一管理</p>
+<p>格式: div,#id,.class{样式代码}</p>
+</li>
+<li><p>属性选择器: 通过元素的属性匹配元素</p>
+<p>格式: 标签名[属性名&#x3D;’值’]{样式代码}</p>
+</li>
+<li><p>后代选择器: 通过元素和元素之间的层级关系元素元素,选择的范围更广</p>
+<p>格式: body div div p{样式代码}  匹配的是body里面的div里面的div里面的所有p(包含后代)</p>
+</li>
+<li><p>子元素选择器: 通过元素和元素之间的层级关系元素元素, 选择的范围更精准 </p>
+<p>格式: body&gt;div&gt;div&gt;p{样式代码} 匹配的是body里面的div里面的div里面的所有p子元素(不包含后代)</p>
+</li>
+<li><p>伪类选择器:  选择元素的状态     包括: 未访问&#x2F;访问过&#x2F;悬停&#x2F;激活</p>
+<p>格式: a:link&#x2F;visited&#x2F;hover&#x2F;active{样式代码}</p>
+</li>
+</ol>
+<h3 id="颜色赋值方式"><a href="#颜色赋值方式" class="headerlink" title="颜色赋值方式"></a>颜色赋值方式</h3><ul>
+<li>三原色: RGB   Red Green Blue   ,  每一种颜色的取值范围0-255 </li>
+<li>五种赋值方式:<ul>
+<li>颜色单词赋值:   red&#x2F;blue&#x2F;yellow&#x2F;green….</li>
+<li>6位16进制赋值:  #ff0000    </li>
+<li>3位16进制赋值:  #f00</li>
+<li>3位10进制赋值:  rgb(255,0,0)</li>
+<li>4位10进制赋值:  rgba(255,0,0,0-1)    a&#x3D;alpha 透明度 值越小越透明</li>
+</ul>
+</li>
+</ul>
+<h3 id="背景图片相关"><a href="#背景图片相关" class="headerlink" title="背景图片相关"></a>背景图片相关</h3><ul>
+<li>background-image:url(“路径”)  设置背景图片</li>
+<li>background-size:200px 300px;  设置背景图片尺寸</li>
+<li>background-repeat:no-repeat; 禁止重复</li>
+<li>background-position: 100px 200px;  设置背景图片的位置 </li>
+<li>background-position: 50% 50%;  设置背景图片的位置</li>
+</ul>
+<h3 id="文本和字体相关样式"><a href="#文本和字体相关样式" class="headerlink" title="文本和字体相关样式"></a>文本和字体相关样式</h3><ul>
+<li>text-align:right&#x2F;center;  水平对齐方式</li>
+<li>text-decoration:overline上划线&#x2F;underline下划线&#x2F;line-through删除线&#x2F;none去掉修饰</li>
+<li>line-height:20px; 设置行高, 单行可以实现垂直居中, 多行可以控制行间距</li>
+<li>text-shadow:颜色 x偏移值 y偏移值 浓度(值越小越清晰);</li>
+<li>font-size:20px; 字体大小</li>
+<li>font-weight:bold加粗&#x2F;normal去掉加粗;</li>
+<li>font-style:italic; 设置斜体</li>
+<li>font-family:xxxx,xxx,xxx;  设置字体</li>
+<li>font: 20px  xxx,xxx,xxx; 设置字体大小+字体</li>
+</ul>
+<h3 id="元素的显示方式display"><a href="#元素的显示方式display" class="headerlink" title="元素的显示方式display"></a>元素的显示方式display</h3><ul>
+<li>block: 块级元素的默认值, 显示特点: 独占一行,可以修改元素的宽高.  包括: h1-h6,p,div</li>
+<li>inline: 行内元素的默认值, 显示特点: 共占一行, 不能修改元素的宽高.  包括: span,b,i,s,u,a</li>
+<li>inline-block: 行内块元素的默认值, 显示特点: 共占一行, 并且可以修改元素宽高. 包括: input,img</li>
+<li>none:   隐藏元素</li>
+</ul>
+<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><ul>
+<li>通过盒子模型相关的样式控制元素的显示效果</li>
+<li>盒子模型包括: content内容+border边框+margin外边距+padding内边距</li>
+<li>content内容:用来控制元素的显示大小</li>
+<li>border边框: 用来控制边框的效果</li>
+<li>margin外边距: 用来控制元素的显示位置</li>
+<li>padding内边距: 用来控制元素内容的位置</li>
+</ul>
+<h3 id="盒子模型之Content内容"><a href="#盒子模型之Content内容" class="headerlink" title="盒子模型之Content内容"></a>盒子模型之Content内容</h3><ul>
+<li>控制元素的显示大小</li>
+<li>相关样式:  width&#x2F;height    赋值方式:1. 像素   2. 上级元素的百分比  </li>
+<li>行内元素是不能修改宽高的, 如果必须要修改, 需要将元素的显示方式改成块级block或行内块inline-block</li>
+</ul>
+<h3 id="盒子模型之margin外边距"><a href="#盒子模型之margin外边距" class="headerlink" title="盒子模型之margin外边距"></a>盒子模型之margin外边距</h3><ul>
+<li><p>控制元素的显示位置</p>
+</li>
+<li><p>赋值方式:</p>
+<ul>
+<li>margin-left&#x2F;right&#x2F;top&#x2F;bottom:10px; 单独某一个方向赋值</li>
+<li>margin:10px;  四个方向赋值</li>
+<li>margin:10px 20px; 上下10  左右20</li>
+<li>margin:10px 20px 30px 40px;   上右下左赋值   顺时针</li>
+</ul>
+</li>
+<li><p>行内元素上下外边距无效  </p>
+</li>
+<li><p>左右相邻彼此添加外边距 两者相加</p>
+</li>
+<li><p>外边距塌陷:</p>
+<ul>
+<li>兄弟元素上下相邻, 彼此添加外边距 取最大值</li>
+<li>父子元素上边缘重叠时, 添加外边距取最大值,会导致父子元素粘连在一起,给父元素添加overflow:hidden样式解决.</li>
+</ul>
+</li>
+</ul>
+<h3 id="盒子模型之边框border"><a href="#盒子模型之边框border" class="headerlink" title="盒子模型之边框border"></a>盒子模型之边框border</h3><ul>
+<li><p>赋值方式:</p>
+<ul>
+<li>border-left&#x2F;right&#x2F;top&#x2F;bottom:粗细 样式 颜色;  单独某一个方向添加边框</li>
+<li>border:粗细 样式 颜色;  四个方向添加边框</li>
+</ul>
+</li>
+<li><p>border-radius:10px ;  设置圆角 值越大越圆</p>
+</li>
+</ul>
+<h3 id="盒子模型之内边距padding"><a href="#盒子模型之内边距padding" class="headerlink" title="盒子模型之内边距padding"></a>盒子模型之内边距padding</h3><ul>
+<li>控制元素内容的位置 </li>
+<li>赋值方式:    和外边距类似<ul>
+<li>padding-left&#x2F;right&#x2F;top&#x2F;bottom:10px;  单独某一个方向添加</li>
+<li>padding:10px;  四个方向添加</li>
+<li>padding: 10px 20px; 上下10 左右20</li>
+<li>padding: 10px 20px 30px 40px;  上右下左 顺时针赋值</li>
+</ul>
+</li>
+<li>给元素添加内边距默认情况下会影响元素的显示范围,给元素添加box-sizing:border-box; 后则不再影响</li>
+</ul>
+<h3 id="部分标签会带盒子模型中的某些样式"><a href="#部分标签会带盒子模型中的某些样式" class="headerlink" title="部分标签会带盒子模型中的某些样式"></a>部分标签会带盒子模型中的某些样式</h3><ul>
+<li><p>body 自带8个像素的外边距</p>
+</li>
+<li><p>段落标签p, 列表标签和内容标题h1-h6  自带上下的外边距</p>
+</li>
+<li><p>文本框自带边框和内边距 </p>
+</li>
+<li><p>列表标签自带外边距和内边距</p>
+</li>
+</ul>
+<h3 id="CSS三大特性"><a href="#CSS三大特性" class="headerlink" title="CSS三大特性"></a>CSS三大特性</h3><p>&#x3D;&#x3D;继承性:&#x3D;&#x3D; 指元素可以继承上级元素文本和字体相关的样式, 部分标签自带的效果不受继承影响, 比如超链接的字体颜色<br>&#x3D;&#x3D;层叠性:&#x3D;&#x3D; 指一个元素可以层叠很多不同的样式,  多个选择器有可能选择到同一个元素, 如果添加的样式不同,则样式全部层叠生效,如果添加的样式相同则由选择器的优先级决定哪个生效<br>&#x3D;&#x3D;优先级:&#x3D;&#x3D; 作用范围越小 优先级越高.       !important&gt;id&gt;class&gt;标签名&gt;继承(属于间接选中)</p>
+<h3 id="居中相关"><a href="#居中相关" class="headerlink" title="居中相关"></a>居中相关</h3><ul>
+<li>元素自身居中:<ul>
+<li>块级元素:  通过外边距  margin:0 auto;  </li>
+<li>行内或行内块元素:   在上级元素中添加text-align:center;</li>
+</ul>
+</li>
+<li>元素内容居中:  只能通过text-align:center;</li>
+</ul>
+<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><ul>
+<li>静态定位</li>
+<li>相对定位</li>
+<li>绝对定位</li>
+<li>固定定位</li>
+<li>浮动定位</li>
+</ul>
+<h3 id="静态定位"><a href="#静态定位" class="headerlink" title="静态定位"></a>静态定位</h3><ul>
+<li><p>position:static;</p>
+</li>
+<li><p>默认的定位方式,又称为文档流定位 </p>
+</li>
+<li><p>特点: 块级元素从上往下依次排列, 行内元素从左向右依次排列,通过外边距控制元素的位置.</p>
+</li>
+<li><p>默认情况下无法实现元素层叠效果</p>
+</li>
+</ul>
+<h3 id="相对定位"><a href="#相对定位" class="headerlink" title="相对定位"></a>相对定位</h3><ul>
+<li>position:relative;</li>
+<li>特点: 元素不脱离文档流(不管元素显示到什么位置,仍然占着原来的位置,后面的元素不会顶上来),元素通过left&#x2F;right&#x2F;top&#x2F;bottom样式 相对于初始位置做偏移.</li>
+<li>应用场景: 当元素需要层叠显示时, 静态定位是无法实现的,  通过相对于定位可以实现层叠, 当需要对某一个元素的显示位置进行微调时使用.</li>
+</ul>
+<h3 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h3><ul>
+<li>position:absolute;</li>
+<li>特点: 元素脱离文档流(不占原来的位置, 后面的元素会顶上来), 通过left&#x2F;right&#x2F;top&#x2F;bottom相对于窗口(默认)或某一个上级元素做偏移.</li>
+<li>应用场景: 当需要层叠显示,并且需要让元素相对于某个上级元素做位置偏移时使用</li>
+</ul>
+<h3 id="固定定位"><a href="#固定定位" class="headerlink" title="固定定位"></a>固定定位</h3><ul>
+<li><p>position:fixed;</p>
+</li>
+<li><p>特点: 元素脱离文档流,  通过left&#x2F;right&#x2F;top&#x2F;bottom相对于窗口做位置偏移.</p>
+</li>
+<li><p>应用场景: 当需要将元素固定在窗口的某个位置时使用</p>
+</li>
+</ul>
+<h3 id="浮动定位"><a href="#浮动定位" class="headerlink" title="浮动定位"></a>浮动定位</h3><ul>
+<li>float:left&#x2F;right</li>
+<li>特点: 元素脱离文档流, 从当前所在行向左或向右浮动,当撞到上级元素边缘或其它浮动元素时停止.</li>
+<li>多个浮动元素一行装不下时会自动折行, 折行时有可能被卡主</li>
+<li>当元素的所有子元素全部浮动时, 自动识别的内容高度为0, 会导致后面的元素顶上来 出现显示异常, 给元素添加overflow:hidden 解决此问题.</li>
+<li>应用场景:  将纵向排列的多个元素 改成横向排列时使用.</li>
+</ul>
+<h3 id="表设计面试题"><a href="#表设计面试题" class="headerlink" title="表设计面试题"></a>表设计面试题</h3><p>2021年过年时小明在这些天都收到了许多亲戚\朋友还有同事的红包,也发出了一些红包,有的是微信,有的是支付宝也有现金,请参考下面的题目帮小明设计表格保存红包的信息</p>
+<ol>
+<li><p>设计表保存红包信息 (至少包含一张流水表)</p>
+<ul>
+<li><p>列出需要保存的数据有哪些:</p>
+<p>人物关系,红包金额,红包类型,时间,性别,名字</p>
+<p>流水表: id,金额,时间,红包类型,人物id</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE mydb CHARSET=UTF8;</span><br><span class="line">USE mydb;</span><br><span class="line">CREATE TABLE trade(id INT PRIMARY KEY AUTO_iNCREMENT,money INT,time DATE,type VARCHAR(10),p_id INT);</span><br></pre></td></tr></table></figure>
+
+<p>人物表:id,名字,性别,关系</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE person(id INT PRIMARY KEY AUTO_iNCREMENT,name VARCHAR(20),gender CHAR(1),rel VARCHAR(10));</span><br></pre></td></tr></table></figure>
+
+<p>插入数据:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO person VALUES(NULL,&#x27;刘德华&#x27;,&#x27;男&#x27;,&#x27;亲戚&#x27;),</span><br><span class="line">(NULL,&#x27;杨幂&#x27;,&#x27;女&#x27;,&#x27;亲戚&#x27;),(NULL,&#x27;马云&#x27;,&#x27;男&#x27;,&#x27;同事&#x27;),(NULL,&#x27;特朗普&#x27;,&#x27;男&#x27;,&#x27;朋友&#x27;),(NULL,&#x27;貂蝉&#x27;,&#x27;女&#x27;,&#x27;朋友&#x27;);</span><br><span class="line">INSERT INTO trade VALUES(NULL,1000,&#x27;2021-3-20&#x27;,&#x27;微信&#x27;,1),</span><br><span class="line">(NULL,500,&#x27;2021-4-14&#x27;,&#x27;现金&#x27;,2),</span><br><span class="line">(NULL,-50,&#x27;2021-4-14&#x27;,&#x27;现金&#x27;,2),</span><br><span class="line">(NULL,20000,&#x27;2021-3-11&#x27;,&#x27;支付宝&#x27;,3),</span><br><span class="line">(NULL,-5,&#x27;2021-3-11&#x27;,&#x27;支付宝&#x27;,3),</span><br><span class="line">(NULL,2000,&#x27;2021-5-18&#x27;,&#x27;微信&#x27;,4),</span><br><span class="line">(NULL,-20000,&#x27;2021-7-22&#x27;,&#x27;微信&#x27;,5);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>统计2021年3月15号到现在的所有红包收益    </p>
+<p>SELECT SUM(money) FROM TRADE WHERE time&gt;’2021-3-15’;</p>
+</li>
+<li><p>查询2021年2月15号到现在 金额大于100 所有女性亲戚的名字和金额</p>
+<p>SELECT name,money</p>
+<p>FROM trade t JOIN person p ON t.p_id&#x3D;p.id</p>
+<p>WHERE time&gt;’2021-2-15’ AND ABS(money)&gt;100 </p>
+<p>AND gender&#x3D;’女’ AND rel&#x3D;’亲戚’;</p>
+</li>
+<li><p>查询三个平台(微信,支付宝,现金)分别收入的红包金额</p>
+<p>SELECT type,SUM(money) FROM trade WHERE money&gt;0 GROUP BY type;</p>
+</li>
+</ol>
+<h3 id="溢出设置overflow"><a href="#溢出设置overflow" class="headerlink" title="溢出设置overflow"></a>溢出设置overflow</h3><ul>
+<li>hidden 隐藏</li>
+<li>visible 显示</li>
+<li>scroll 滚动显示</li>
+</ul>
+<h3 id="显示层级"><a href="#显示层级" class="headerlink" title="显示层级"></a>显示层级</h3><ul>
+<li>当元素为非static 定位,出现层叠时, 可以通过z-index设置显示层级, 值越大显示越靠前</li>
+</ul>
+<h3 id="行内元素垂直对齐方式vertical-align"><a href="#行内元素垂直对齐方式vertical-align" class="headerlink" title="行内元素垂直对齐方式vertical-align"></a>行内元素垂直对齐方式vertical-align</h3><ul>
+<li>top上对齐</li>
+<li>middle中间对齐</li>
+<li>bottom下对齐</li>
+<li>baseline基线对齐</li>
+</ul>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><ul>
+<li><p>作用: 给页面添加动态效果</p>
+</li>
+<li><p>语言特点: </p>
+<ul>
+<li>属于脚本语言, 不需要编译由浏览器解析执行.  </li>
+<li>属于弱类型语言        int x &#x3D; 10;   String name&#x3D;”张三” ;     let x&#x3D;10;  let name&#x3D;”张三”;  </li>
+<li>基于面向对象语言</li>
+<li>安全性强:  因为JS语言是嵌入到html页面中运行在客户端的语言,所以对安全性要求较高 , JS语言只能获取浏览器内部的数据, 浏览器以外客户端电脑上面的数据是禁止访问的.  </li>
+<li>交互性强: JS语言是嵌入到html页面中运行在客户端的语言, 和用户直接接触, 而像Java语言是运行在服务器的语言,需要通过网络进行交互,所以相对来说JS语言的交互性更强</li>
+<li>JavaScript和Java语言没有任何关系 , 只是为了蹭热度 .</li>
+</ul>
+<p>变量 数据类型 运算符 各种语句 方法  面向对象</p>
+</li>
+</ul>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
+<li><p>JavaScript语言属于弱类型语言</p>
+<ul>
+<li>Java: int age&#x3D;18; String name&#x3D;”张三”;     name&#x3D;20; 报错</li>
+<li>JS:   let age&#x3D;18; let name&#x3D;”李四”;     name&#x3D;20; 正常执行</li>
+</ul>
+</li>
+<li><p>JavaScript语言中通过let或var声明变量 </p>
+<ul>
+<li><p>let声明的变量, 作用域和Java语言类似</p>
+</li>
+<li><p>var声明的变量, 不管在什么位置都相当于声明的是一个全局变量  </p>
+</li>
+<li><p>举例:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Java</span>:</span><br><span class="line"><span class="keyword">for</span>(int i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line"> 	int j = i+<span class="number">1</span>;   </span><br><span class="line">&#125;</span><br><span class="line">int x = i+j;   <span class="comment">//报错   i和j超出了作用域 </span></span><br><span class="line"><span class="title class_">JavaScript</span>:   <span class="keyword">let</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">let</span> j=i+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> x = i+j;    <span class="comment">//不会报错 但是因为i和j超出了作用域,访问不到i和j</span></span><br><span class="line"><span class="title class_">JavaScript</span>:   <span class="keyword">var</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> j=i+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> x = i+j;   <span class="comment">//不会报错, 并且可以访问到i和j的值</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
+<li>JavaScript语言中只有引用类型 </li>
+<li>常见的对象类型：<ul>
+<li>string字符串:   可以通过单引号或双引号进行修饰  </li>
+<li>number数值:  相当于java中所有数值类型的总和</li>
+<li>boolean布尔值:   true和false</li>
+<li>undefined未定义:  当变量只声明不赋值时,变量的类型为未定义类型</li>
+</ul>
+</li>
+<li>获取变量类型的方法:      typeof 变量;</li>
+</ul>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul>
+<li>算术运算符: + -  * &#x2F;  % <ul>
+<li>除法运算会自动根据结果转换整数或小数     <ul>
+<li>java :   int x &#x3D; 5;  int y&#x3D;2;  int z &#x3D; x&#x2F;y;     z&#x3D;2</li>
+<li>js :  let x &#x3D; 5; let y&#x3D;2;  let z &#x3D; x&#x2F;y;    z&#x3D;2.5        x&#x3D;6   z&#x3D;3</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>关系运算符: &gt;  &lt;    &gt;&#x3D;     &lt;&#x3D;    !&#x3D;    &#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;<ul>
+<li>&#x3D;&#x3D;:  先统一等号两边变量的类型, 再比较值   “666”&#x3D;&#x3D;666        true    </li>
+<li>&#x3D;&#x3D;&#x3D;: 先比较类型,类型相同后再比较值     “666”&#x3D;&#x3D;&#x3D;666   false</li>
+</ul>
+</li>
+<li>逻辑运算符:  &amp;&amp;   ||    !     只支持短路与和短路或  </li>
+<li>赋值运算符:   &#x3D;     +&#x3D;   -&#x3D;   *&#x3D;   &#x2F;&#x3D;   %&#x3D;   </li>
+<li>三目运算符:      条件?值1:值2</li>
+</ul>
+<h3 id="各种语句"><a href="#各种语句" class="headerlink" title="各种语句"></a>各种语句</h3><ul>
+<li>if else</li>
+<li>for  新循环  for(Person p : persons)       JS:    for(let p of persons)</li>
+<li>while</li>
+<li>switch case</li>
+</ul>
+<h3 id="如何在html页面中添加js代码"><a href="#如何在html页面中添加js代码" class="headerlink" title="如何在html页面中添加js代码"></a>如何在html页面中添加js代码</h3><ul>
+<li>三种引入方式<ul>
+<li>内联:在标签的事件属性中添加JS代码,当事件触发时执行.<ul>
+<li>事件: 指系统提供的一系列时间点  .</li>
+<li>点击事件:  当用户点击元素的时间点.</li>
+</ul>
+</li>
+<li>内部: 在页面的任意位置可以添加script标签,在标签体内写js代码, 建议写在body结束标签的附近</li>
+<li>外部: 在单独的js文件中写js代码, 在html页面中通过script标签的src属性引入, 如果script标签引入了js文件则不能在标签体内继续写js代码</li>
+</ul>
+</li>
+</ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>Java:  public 返回值 方法名(参数列表){方法体}</li>
+<li>JS:    function 方法名(参数列表){方法体}</li>
+<li>三种定义方法的方式:<ul>
+<li>function 方法名(参数列表){方法体}</li>
+<li>let 方法名 &#x3D; function(参数列表){方法体}</li>
+<li>let 方法名 &#x3D; new Function(“参数1”,”参数2”,”方法体”);</li>
+</ul>
+</li>
+</ul>
+<h3 id="和页面相关的方法"><a href="#和页面相关的方法" class="headerlink" title="和页面相关的方法"></a>和页面相关的方法</h3><ul>
+<li><p>通过选择器获取页面中的元素对象    </p>
+<p>let 元素对象 &#x3D; document.querySelector(“选择器”);</p>
+</li>
+<li><p>获取和修改控件的值  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&#x27;text&#x27; value=&#x27;abc&#x27;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>input.value  获取</p>
+<p>input.value&#x3D;”xxx”  修改</p>
+</li>
+<li><p>获取和修改元素的文本内容      <code>&lt;div&gt;abc&lt;/div&gt;   &lt;span&gt;abc&lt;/span&gt;</code></p>
+</li>
+</ul>
+<h3 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h3><ul>
+<li><p>Not a Number: 不是一个数, 任何数值和NaN进行任何运算得到的结果都是NaN </p>
+</li>
+<li><p>isNaN(变量) ,判断变量是否是NaN,   true代表是NaN(不是数), false代表不是NaN(是数)</p>
+</li>
+</ul>
+<h3 id="JavaScript对象分类"><a href="#JavaScript对象分类" class="headerlink" title="JavaScript对象分类"></a>JavaScript对象分类</h3><ul>
+<li>内置对象:  包括string,number,boolean等 </li>
+<li>BOM: 浏览器对象模型,包含和浏览器相关的内容</li>
+<li>DOM:文档对象模型,包含和页面相关的内容</li>
+</ul>
+<h3 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h3><ul>
+<li><p>BrowserObject Model:  浏览器对象模型,包含和浏览器相关的内容</p>
+</li>
+<li><p>window对象, 此对象中的属性和方法可以称为全局属性和全局方法, 访问时可以省略掉window.</p>
+<p>window.isNaN()   window.alert()    window.parseInt()</p>
+</li>
+<li><p>window对象中常见的方法:</p>
+<ul>
+<li>isNaN(变量)  判断变量是否是NaN</li>
+<li>parseInt() 将字符串或小数转成整数</li>
+<li>parseFloat() 将字符串转成小数  </li>
+<li>alert(“xxx”) 弹出提示框</li>
+<li>confirm(“xxx”)弹出确认框</li>
+<li>prompt(“xxx”)弹出文本框</li>
+<li>let timer &#x3D; setInterval(方法,时间间隔);  开启定时器</li>
+<li>clearInterval(timer);  停止定时器</li>
+<li>setTimeout(方法, 时间间隔);  开启只执行一次的定时器</li>
+</ul>
+</li>
+<li><p>window对象中常见的属性</p>
+<ul>
+<li>location(位置)<ul>
+<li>location.href   获取或修改浏览器的请求地址</li>
+<li>location.reload()  刷新页面</li>
+</ul>
+</li>
+<li>history(历史)<ul>
+<li>history.length 历史页面的数量</li>
+<li>history.back()  返回上一页面        后退</li>
+<li>hisotry.forward()  前往下一页面    前进</li>
+<li>history.go(n)      n正值代表前进   n负值代表后退     0代表刷新</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><ul>
+<li><p>Document Object Model 文档对象模型, 包含和页面相关的内容</p>
+</li>
+<li><p>通过选择器获取页面中的元素对象    </p>
+<p>let 元素对象 &#x3D; document.querySelector(“选择器”);</p>
+</li>
+<li><p>获取和修改控件的值  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&#x27;text&#x27; value=&#x27;abc&#x27;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>input.value  获取</p>
+<p>input.value&#x3D;”xxx”  修改</p>
+</li>
+<li><p>获取和修改元素的文本内容      <code>&lt;div&gt;abc&lt;/div&gt;   &lt;span&gt;abc&lt;/span&gt;</code></p>
+<p>元素对象.innerText &#x3D; “xxx”;   修改</p>
+<p>元素对象.innerText    获取</p>
+</li>
+<li><p>创建元素对象</p>
+<p>let d &#x3D; document.createElement(“div”);</p>
+</li>
+<li><p>添加元素到某个元素里面</p>
+<p>元素对象.append(新元素);</p>
+</li>
+</ul>
+<h3 id="前端MVC设计模式"><a href="#前端MVC设计模式" class="headerlink" title="前端MVC设计模式"></a>前端MVC设计模式</h3><ul>
+<li>MVC设计模式就是将实现前端业务的所有代码划分为三部分</li>
+<li>M: model 模型 ,  对应数据相关代码</li>
+<li>V: View  视图,   对应的是页面标签相关</li>
+<li>C: Controller 控制器, 对应的是将数据显示到页面中的过程代码</li>
+<li>前端MVC设计模式存在弊端:  在Controller控制器部分 需要频繁的进行DOM相关操作(遍历查找元素),比较浪费资源 , MVVM设计模式可以解决此问题</li>
+</ul>
+<h3 id="前端MVVM设计模式"><a href="#前端MVVM设计模式" class="headerlink" title="前端MVVM设计模式"></a>前端MVVM设计模式</h3><ul>
+<li>MVVM设计模式也是将实现前端业务的所有代码划分为三部分</li>
+<li>M: model 模型 ,  对应数据相关代码</li>
+<li>V: View  视图,   对应的是页面标签相关</li>
+<li>VM:视图模型, 视图模型负责将页面中可能发生改变的元素和某个变量在内存中进行绑定, 并对变量进行监听,当变量发生改变时,会从内存中找到和变量所对应的元素, 让元素进行改动. 这样就不用像MVC设计模式中通过遍历查找的方式查找元素了，从而提高执行的效率。</li>
+</ul>
+<h3 id="VUE"><a href="#VUE" class="headerlink" title="VUE"></a>VUE</h3><ul>
+<li><p>此框架是基于MVVM设计模式的框架, 目前最流行的前端框架之一.</p>
+</li>
+<li><p>VUE框架两种用法: </p>
+<ul>
+<li>多页面应用: 在html页面中引入vue.js框架文件</li>
+<li>单页面应用:通过脚手架的方式使用VUE框架(第四阶段开始接触)</li>
+</ul>
+</li>
+<li><p>如何在html页面中引入vue.js </p>
+<ul>
+<li><p>从CDN服务器引入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.staticfile.org/vue/2.2.2/vue.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把框架文件下载到本地后引入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js/vue.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>VUE框架执行元素:  VUE对象就相当于是MVVM设计模式中的VM视图模型, 此对象负责将页面中发生改变的元素和data里面的变量在内存中绑定, 并且会不断监听变量值的改变, 当检测到变量值发生改变时,会自动从内存中找到与之对应的元素,并且让元素的内容跟着发生改变.</p>
+</li>
+</ul>
+<h3 id="VUE相关指令"><a href="#VUE相关指令" class="headerlink" title="VUE相关指令"></a>VUE相关指令</h3><ul>
+<li>: 插值, 让当前位置的文本内容和变量进行绑定</li>
+<li>v-text&#x3D;”变量”  让元素的文本内容和变量进行绑定</li>
+<li>v-html&#x3D;”变量”  让元素的标签内容和变量进行绑定</li>
+<li>:属性名&#x3D;”变量” 让元素的某个属性的值和变量进行绑定</li>
+<li>v-model&#x3D;”变量” 双向绑定,让控件的值和变量进行双向绑定, 当需要获取控件的值的时候使用</li>
+<li>@事件名&#x3D;”方法” 给元素添加事件,  需要将事件触发的方法声明在methods里面.</li>
+<li>v-for&#x3D;”(变量,下标) in 数组”  循环遍历指令, 遍历的同时会生成元素</li>
+<li>v-if&#x3D;”变量”  让元素是否显示和变量进行绑定, true显示 false不显示(删除元素)</li>
+<li>v-else   让元素的显示状态和v-if取反</li>
+<li>v-show&#x3D;”变量”  让元素是否显示和变量进行绑定, true显示 false不显示(隐藏元素)</li>
+</ul>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/2022/08/28/kafka%E9%9B%86%E7%BE%A4Eagle%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Eagle运维监控</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            John Doe &copy; 2023 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
